@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tweet Simple</title>   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <header class="jumbotron">
+        <h1 id="header" style="text-align: center; float:right;">Tweet Simple</h1>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            {% if session.logged_in %}
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="user_profile" style="color:cyan;"
+                        role="button" aria-haspopup="true" aria-expanded="false">{{session.first_name}}
+                        <img src="https://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png" id="profile_logo">
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                <li class="nav-item registration">
+                    <a class="nav-link" href="/likes/{{session.user_id}}" id="likes">Likes</a>
+                </li> -->
+                <li class="nav-item registration">
+                    <a class="nav-link" href="/logout" style="color: red;">Logout</a>
+                </li>
+                </li>
+                <li class="nav-item registration" style="cursor:default;">
+                    <a class="nav-link" id="user_id" style="color:cyan;">{{session.user}}</a>
+                </li>
+
+                
+            {% else %}
+                <!-- <li class="nav-item registration">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <li class="nav-item registration">
+                    <a class="nav-link" href="/login">Login</a>
+                </li> -->
+            {% endif %}
+        
+
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>  -->
+        </ul>
+    </header>
+   
+    {% block body %}
+    
+
+    {% endblock %}    
+    <!-- <script src="https://kit.fontawesome.com/35757ef71c.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    -->
+    
+    <script>
+    // header on click
+    document.getElementById('header').addEventListener('click', e => {
+        window.location.href = '/';
+    });
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container">
+{% if session.logged_in %}
+  <form action="/new_category" method="POST">
+    <div class="form-group" style="text-align: center;">
+      <input
+        type="text"
+        name="category"
+        placeholder="Add new category..."
+      />
+    </div>
+    <input type="submit" value="Add new category..." class="btn" />
+  </form>
+  <form action="" method="POST" id="categories">
+    {% if categories %}
+      <div class="cards">
+        {% for c in categories %}
+          <span class="card card-body">
+            <h5 class="card-title">{{c.name}}</h5>
+          </span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </form>
+{% else %}
+  <a href="/register"><button class="btn">Register</button></a>
+  <a href="/login"><button class="btn">Login</button></a>
+{% endif %}
+{% if error %}
+  {{error}}
+{% endif %}
+  <script src="{{url_for('static',filename='js/index.js')}}"></script>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+API_KEY = "AZfbVC00Rle7DNsuM4FaYe5Mm"
+API_SECRET = "CIzWt1hzxmD68fZOHhvMVvqMfUDWgMi1qcOECzUKAyXLMQi3id"
+BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAGTBGgEAAAAAapOpOk3eLAs3LAIlw45Dy20bnmw%3DuxAQG92TjL6mn5doaOhuOvk89VBqR44JUQtJqIKKguCxjICOOP"
+SECRET_KEY = "Sword099*"
+DB_STRING_DEV = 'postgresql://postgres:Sword099*@localhost/TweetSimple'
+DB_STRING_PROD = 'postgres://usrjzetdviamye:359a42a27b7e18241f4df415698d4ce35984294f193566d32859a3370f4a99c5@ec2-54-236-146-234.compute-1.amazonaws.com:5432/dfvdel0mo8vmeh'

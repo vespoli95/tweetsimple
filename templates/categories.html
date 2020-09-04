@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% if session.logged_in %}
+    <div class="container">
+      
+      <form action="/new_timeline" method="POST">
+          <h2>{{session.category}}</h2>
+          <div class="form-group" style="text-align: center;">
+          <input
+            type="text"
+            name="handle"
+            placeholder="Twitter handle of user"
+          />
+          <input
+          type="hidden"
+          value="{{session.category}}"
+          name="category"
+          />
+        </div>
+        <input type="submit" value="Add new timeline..." class="btn" />
+      </form>
+      <div class="timelines">
+        {% if timelines %}
+          {% for handle, tweets in timelines.items() %}
+            <div class="timeline">
+              <h4>@{{handle}}</h4>
+              {% for tweet in tweets %}
+                <div class="message">
+                  <p>{{ tweet['data']['created_at'] }}: <strong>{{ tweet['data']['text'] }}</strong></p>
+                  {% if 'media' in tweet['includes'] %}
+                    {% for photo in tweet['includes']['media'] %}
+                      <a href="{{photo['url']}}"><img src="{{photo['url']}}"></a> 
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+         
+    </div>
+    {% else %}
+
+    {% endif %}
+{% endblock %}
