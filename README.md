@@ -2,6 +2,8 @@
 
 Goal: Make Twitter less addictive.
 
+available here: https://tweetsimple.herokuapp.com/ 
+
 All technologies used:
 
 Python
